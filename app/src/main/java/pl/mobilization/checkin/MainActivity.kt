@@ -1,9 +1,6 @@
 package pl.mobilization.checkin
 
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.design.widget.Snackbar
-import android.view.View
 import android.support.design.widget.NavigationView
 import android.support.v4.view.GravityCompat
 import android.support.v4.widget.DrawerLayout
@@ -13,8 +10,17 @@ import android.support.v7.widget.Toolbar
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View.GONE
+import com.google.android.gms.tasks.OnCompleteListener
+import com.google.firebase.auth.FirebaseAuth
+import mu.KotlinLogging
+import com.google.firebase.auth.FirebaseUser
+
+
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+    private val logger = KotlinLogging.logger {}
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,6 +37,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val navigationView = findViewById(R.id.nav_view) as NavigationView
         navigationView.setNavigationItemSelectedListener(this)
         navigationView.visibility = GONE;
+
+    }
+
+
+    override fun onStart() {
+        super.onStart()
+        val currentUser = "dfs";
+
+        logger.debug { "Current user $currentUser " }
     }
 
     override fun onBackPressed() {

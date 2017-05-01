@@ -1,18 +1,21 @@
 package pl.mobilization.checkin.login
 
 import io.reactivex.Single
-import pl.mobilization.checkin.LoginUseCase
 
 
 /**
  * Created by mario on 12.04.17.
  */
 class LoginPresenterImpl : LoginPresenter {
-    override fun getLoginUseCase() : LoginUseCase = LoginFirebaseUseCase()
 
+    val loginUseCase = LoginNetUseCase(FirebaseLoginGateway())
+
+    override fun getCurrentUser(): Single<User> {
+        return loginUseCase.getCurrentUser()
+    }
 
     override fun login(login: String, password: String): Single<String> {
-        return getLoginUseCase().login(login, password)
+        return loginUseCase.login(login, password).map { u -> u.toString() }
     }
 
     override fun logout() {

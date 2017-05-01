@@ -7,10 +7,11 @@ import android.widget.EditText
 import android.widget.Toast
 import io.reactivex.SingleObserver
 import io.reactivex.rxkotlin.subscribeBy
+import mu.KotlinLogging
 import pl.mobilization.checkin.R
 
 class LoginActivity : AppCompatActivity() {
-
+    private val logger = KotlinLogging.logger {}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
@@ -19,13 +20,13 @@ class LoginActivity : AppCompatActivity() {
         val loginButton = findViewById(R.id.loginButton)
         val presenter = LoginPresenterImpl()
         loginButton.setOnClickListener {
-
-            presenter.login(loginInput.text.toString(), passwordInput.text.toString())
-                    .subscribeBy(
-                            onSuccess = { Snackbar.make(loginButton, "Success " + it, Snackbar.LENGTH_SHORT)},
-                            onError = {it.printStackTrace()}
-                    )
+        presenter.login(loginInput.text.toString(), passwordInput.text.toString())
+                .subscribeBy(
+                        onSuccess = { Snackbar.make(loginButton, "Success " + it, Snackbar.LENGTH_SHORT)},
+                        onError = {logger.debug("error ", it) }
+                )
         }
+
     }
 
 }
