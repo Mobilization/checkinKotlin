@@ -1,5 +1,6 @@
 package pl.mobilization.checkin.login
 
+import android.arch.lifecycle.LifecycleActivity
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -10,7 +11,7 @@ import io.reactivex.rxkotlin.subscribeBy
 import mu.KotlinLogging
 import pl.mobilization.checkin.R
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : LifecycleActivity() {
     private val logger = KotlinLogging.logger {}
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
         val passwordInput = findViewById(R.id.passwordInput) as EditText
         val loginButton = findViewById(R.id.loginButton)
         val presenter = LoginPresenterImpl()
+
         loginButton.setOnClickListener {
         presenter.login(loginInput.text.toString(), passwordInput.text.toString())
                 .subscribeBy(
@@ -26,7 +28,14 @@ class LoginActivity : AppCompatActivity() {
                         onError = {logger.debug("error ", it) }
                 )
         }
+        val myComponents = MyComponent(lifecycle)
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        //println("OnStart")
+        //println("LC " + lifecycle.currentState)
     }
 
 }
