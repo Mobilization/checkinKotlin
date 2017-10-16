@@ -1,6 +1,8 @@
 package pl.mobilization.checkin.login
 
 import android.arch.lifecycle.LifecycleActivity
+import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.Observer
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.design.widget.Snackbar
@@ -29,6 +31,13 @@ class LoginActivity : LifecycleActivity() {
                 )
         }
         val myComponents = MyComponent(lifecycle)
+        val userData : LiveData<User> = MyLifeData()
+        val fds = Observer{ u: User? -> println("user " + u) }
+        userData.observe(this,fds);
+
+    }
+
+    class MyLifeData : LiveData<User>() {
 
     }
 
