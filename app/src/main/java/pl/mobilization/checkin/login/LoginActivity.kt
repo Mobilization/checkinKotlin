@@ -1,8 +1,9 @@
 package pl.mobilization.checkin.login
 
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.support.design.widget.Snackbar
+import android.widget.Button
+import com.google.android.material.snackbar.Snackbar
 import android.widget.EditText
 import android.widget.Toast
 import io.reactivex.SingleObserver
@@ -17,13 +18,13 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
         val loginInput = findViewById(R.id.loginInput) as EditText
         val passwordInput = findViewById(R.id.passwordInput) as EditText
-        val loginButton = findViewById(R.id.loginButton)
+        val loginButton = findViewById(R.id.loginButton) as Button
         val presenter = LoginPresenterImpl()
         loginButton.setOnClickListener {
         presenter.login(loginInput.text.toString(), passwordInput.text.toString())
                 .subscribeBy(
-                        onSuccess = { Snackbar.make(loginButton, "Success " + it, Snackbar.LENGTH_SHORT)},
-                        onError = {logger.debug("error ", it) }
+                        onSuccess = { Snackbar.make(loginButton, "Success " + it, Snackbar.LENGTH_SHORT).show()},
+                        onError = {Snackbar.make(loginButton, "Error ${it.message}", Snackbar.LENGTH_SHORT).show()}
                 )
         }
 

@@ -11,8 +11,8 @@ class LoginSimpleUseCase : LoginUseCase {
         return Single.just(User("Mariusz", "mariopce@gmail.com"))
     }
 
-    override fun login(user: String, pass: String): Single<String> {
-        return Single.just("ok");
+    override fun login(user: String, pass: String): Single<User> {
+        return Single.just(User("Mariusz", "mariopce@gmail.com"));
     }
 
 }

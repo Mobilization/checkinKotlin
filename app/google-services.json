@@ -25,15 +25,87 @@
         }
       ],
       "services": {
-        "analytics_service": {
-          "status": 1
-        },
         "appinvite_service": {
-          "status": 1,
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453088559379-1atk31i3etv70f9dcaridfksls05u4fm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453088559379:android:301d2c48e0a57ecf",
+        "android_client_info": {
+          "package_name": "pl.mobilization.mobilizationselfcheckin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453088559379-fl9bon9qufefqrt4lvu547de0tepqsd4.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.mobilization.mobilizationselfcheckin",
+            "certificate_hash": "44e05f80793e10b3e88cbc5bfd090b165de9f727"
+          }
         },
-        "ads_service": {
-          "status": 2
+        {
+          "client_id": "453088559379-1atk31i3etv70f9dcaridfksls05u4fm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2ioZNJ0z5yUe378VfYWFo9dhxjTh1Ki0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453088559379-1atk31i3etv70f9dcaridfksls05u4fm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:453088559379:android:cd1ff9884b9b676d",
+        "android_client_info": {
+          "package_name": "pl.mobilization.self.mobilizationselfcheckin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "453088559379-8h3vdvp981m7ac4edp14agv0juh3tahh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "pl.mobilization.self.mobilizationselfcheckin",
+            "certificate_hash": "44e05f80793e10b3e88cbc5bfd090b165de9f727"
+          }
+        },
+        {
+          "client_id": "453088559379-1atk31i3etv70f9dcaridfksls05u4fm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB2ioZNJ0z5yUe378VfYWFo9dhxjTh1Ki0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "453088559379-1atk31i3etv70f9dcaridfksls05u4fm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

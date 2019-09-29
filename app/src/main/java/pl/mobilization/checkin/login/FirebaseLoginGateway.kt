@@ -19,8 +19,8 @@ class FirebaseLoginGateway : LoginGateway {
             mAuth.createUserWithEmailAndPassword(user, pass).addOnCompleteListener(OnCompleteListener {
                 task ->
                 if (task.isSuccessful){
-                    val user = task.result.user
-                    s.onSuccess(User(user.displayName.orEmpty(), user.email.orEmpty()))
+                    val user = task.result?.user
+                    s.onSuccess(User(user?.displayName.orEmpty(), user?.email.orEmpty()))
                 }else{
                     s.onError(IllegalStateException("Can not create user"))
                 }
